@@ -16,12 +16,11 @@ class Checkbox extends React.Component {
   }
 
   handleChange(event) {
-    const { checked } = this.state;
     const { onChange } = this.props;
 
-    this.setState({
+    this.setState(({ checked }) => ({
       checked: !checked,
-    });
+    }));
 
     onChange(event);
   }

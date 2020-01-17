@@ -33,61 +33,56 @@ class App extends React.Component {
   }
 
   handleNewProject(title) {
-    const { projects } = this.state;
-
-    this.setState({
+    this.setState(({ projects }) => ({
       projects: [...projects, new Project({ title })],
       selectedProjectIndex: projects.length,
-    });
+    }));
   }
 
   handleProjectRemove() {
     const { projects } = this.state;
 
     this.removeCurrentProject();
-    if (projects.length === 0) {
-      this.handleNewProject('New Project');
-    }
+
+    if (projects.length <= 1) this.handleNewProject('New Project');
   }
 
   removeCurrentProject() {
-    const { projects, selectedProjectIndex } = this.state;
-
-    projects.splice(selectedProjectIndex, 1);
-
-    this.setState({
-      projects,
-
-      // Make sure the index doesn't go under 0.
-      selectedProjectIndex:
-        selectedProjectIndex > 0 ? selectedProjectIndex - 1 : selectedProjectIndex,
+    this.setState(({ projects, selectedProjectIndex }) => {
+      projects.splice(selectedProjectIndex, 1);
+      return {
+        projects,
+        // Make sure the index doesn't go under 0.
+        selectedProjectIndex:
+          selectedProjectIndex > 0 ? selectedProjectIndex - 1 : selectedProjectIndex,
+      };
     });
   }
 
   handleNewTodo(todoData) {
-    const { projects, selectedProjectIndex } = this.state;
-    projects[selectedProjectIndex].addTodo(new Todo(todoData));
-
-    this.setState({
-      projects,
+    this.setState(({ projects, selectedProjectIndex }) => {
+      projects[selectedProjectIndex].addTodo(new Todo(todoData));
+      return {
+        projects,
+      };
     });
   }
 
   handleTodoToggleCompletion(index) {
-    const { projects, selectedProjectIndex } = this.state;
-    projects[selectedProjectIndex].todos[index].toggleCompletion();
-
-    this.setState({
-      projects,
+    this.setState(({ projects, selectedProjectIndex }) => {
+      projects[selectedProjectIndex].todos[index].toggleCompletion();
+      return {
+        projects,
+      };
     });
   }
 
   handleTodoRemove(index) {
-    const { projects, selectedProjectIndex } = this.state;
-    projects[selectedProjectIndex].removeTodo(index);
-
-    this.setState({
-      projects,
+    this.setState(({ projects, selectedProjectIndex }) => {
+      projects[selectedProjectIndex].removeTodo(index);
+      return {
+        projects,
+      };
     });
   }
 
