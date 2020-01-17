@@ -1,0 +1,23 @@
+.c-todo-list-card {
+  &__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-right: 0.5rem;
+
+    .fa-trash {
+      // Make button hitbox larger
+      padding: 0.5rem;
+    }
+  }
+
+  &__list {
+    overflow: hidden;
+
+    max-height: 90%;
+
+    &:hover {
+      overflow-y: auto;
+    }
+  }
+}

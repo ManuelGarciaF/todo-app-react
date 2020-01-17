@@ -1,0 +1,10 @@
+.c-new-todo-card {
+  height: min-content;
+  align-self: start;
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+}

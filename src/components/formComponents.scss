@@ -1,0 +1,50 @@
+$primary: #3498db;
+
+border-and-shadow {
+  border: 2px $primary solid;
+  border-radius: 0.75rem;
+  box-shadow: 0.05rem 0.05rem 0.1rem rgba($color: #000000, $alpha: 0.2);
+}
+
+.c-form {
+  &__text {
+    @extend border-and-shadow;
+
+    padding: 0.5rem 1rem;
+    margin: 0.25rem 0;
+
+    font-size: 1rem;
+  }
+
+  &__date {
+    @extend border-and-shadow;
+
+    padding: 0.5rem 1rem;
+    margin: 0.25rem 0;
+
+    font-size: 1rem;
+
+    span {
+      padding-right: 0.5rem;
+    }
+  }
+
+  &__submit {
+    @extend border-and-shadow;
+
+    padding: 0.5rem 0;
+    margin: 0.25rem 0;
+
+    background-color: $primary;
+    color: white;
+
+    &:hover {
+      background-color: darken($color: $primary, $amount: 20);
+      border-color: darken($color: $primary, $amount: 20);
+    }
+  }
+}
+
+textarea {
+  resize: none;
+}

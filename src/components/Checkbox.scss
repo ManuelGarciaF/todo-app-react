@@ -1,0 +1,58 @@
+.c-checkbox {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+
+  cursor: pointer;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  &__input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  &__checkmark {
+    display: block;
+    height: 1rem;
+    width: 1rem;
+    background-color: #eee;
+    border-radius: 0.3rem;
+
+    margin-right: 0.5rem;
+
+    .fa-check {
+      display: block;
+      width: 75%;
+      margin: auto;
+      color: white;
+    }
+    &.is-checked {
+      background-color: #3498db;
+    }
+  }
+
+  &:hover &__checkmark {
+    background-color: #ccc;
+  }
+  &:hover &__checkmark.is-checked {
+    background-color: darken($color: #3498db, $amount: 10);
+  }
+
+  &__title {
+    font-weight: normal;
+
+    &.is-completed {
+      text-decoration: line-through;
+      color: #bcbcbc;
+    }
+  }
+}

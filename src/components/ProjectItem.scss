@@ -1,0 +1,16 @@
+.c-project-list__item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  border-bottom: 1px solid #d8d8d8;
+  padding: 0.5rem 0;
+  margin: 0.25rem 0;
+  margin-right: auto;
+
+  .fa-circle {
+    color: #3498db;
+    align-self: center;
+    margin-right: 0.5rem;
+  }
+}
