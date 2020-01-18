@@ -20,14 +20,12 @@ class NewTodoCard extends React.Component {
     this.state = {
       title: '',
       description: '',
-      dateDue: moment(),
-      dateDueRaw: new Date(),
+      dateDue: new Date(),
     };
   }
 
   handleDateChange(date) {
     this.setState({
-      dateDue: moment(date),
       dateDueRaw: date,
     });
   }
@@ -62,14 +60,13 @@ class NewTodoCard extends React.Component {
     this.setState({
       title: '',
       description: '',
-      dateDue: moment(),
-      dateDueRaw: new Date(),
+      dateDue: new Date(),
     });
   }
 
   /* eslint-disable jsx-a11y/label-has-associated-control */
   render() {
-    const { title, description, dateDueRaw } = this.state;
+    const { title, description, dateDue } = this.state;
 
     return (
       <div className="c-card c-new-todo-card">
@@ -95,11 +92,7 @@ class NewTodoCard extends React.Component {
           />
           <label className="c-form__date">
             <span>Date Due:</span>
-            <DatePicker
-              selected={dateDueRaw}
-              onChange={this.handleDateChange}
-              minDate={new Date()}
-            />
+            <DatePicker selected={dateDue} onChange={this.handleDateChange} minDate={new Date()} />
           </label>
           <input className="c-form__submit" type="submit" value="Submit" />
         </form>

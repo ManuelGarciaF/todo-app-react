@@ -6,12 +6,4 @@ export default class Project {
     this.todos = [];
     this.id = uuidv4();
   }
-
-  addTodo(todo) {
-    this.todos.push(todo);
-  }
-
-  removeTodo(index) {
-    this.todos.splice(index, 1);
-  }
 }

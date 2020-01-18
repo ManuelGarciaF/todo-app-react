@@ -8,8 +8,4 @@ export default class Todo {
     this.completed = false;
     this.id = uuidv4();
   }
-
-  toggleCompletion() {
-    this.completed = !this.completed;
-  }
 }

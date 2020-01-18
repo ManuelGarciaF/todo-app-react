@@ -26,6 +26,14 @@ class App extends React.Component {
     };
   }
 
+  componentDidMount() {
+    this.setState(JSON.parse(localStorage.getItem('state')));
+  }
+
+  componentDidUpdate() {
+    localStorage.setItem('state', JSON.stringify(this.state));
+  }
+
   handleProjectChange(index) {
     this.setState({
       selectedProjectIndex: index,
@@ -61,7 +69,7 @@ class App extends React.Component {
 
   handleNewTodo(todoData) {
     this.setState(({ projects, selectedProjectIndex }) => {
-      projects[selectedProjectIndex].addTodo(new Todo(todoData));
+      projects[selectedProjectIndex].todos.push(new Todo(todoData));
       return {
         projects,
       };
@@ -70,7 +78,9 @@ class App extends React.Component {
 
   handleTodoToggleCompletion(index) {
     this.setState(({ projects, selectedProjectIndex }) => {
-      projects[selectedProjectIndex].todos[index].toggleCompletion();
+      const todo = projects[selectedProjectIndex].todos[index];
+      todo.completed = !todo.completed;
+
       return {
         projects,
       };
@@ -79,7 +89,7 @@ class App extends React.Component {
 
   handleTodoRemove(index) {
     this.setState(({ projects, selectedProjectIndex }) => {
-      projects[selectedProjectIndex].removeTodo(index);
+      projects[selectedProjectIndex].todos.splice(index, 1);
       return {
         projects,
       };

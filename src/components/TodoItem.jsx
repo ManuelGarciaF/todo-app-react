@@ -19,6 +19,7 @@ const TodoItem = (props) => {
             handleTodoToggleCompletion(index);
           }}
           title={todo.title}
+          checked={todo.completed ? 'checked' : ''}
         />
         {todo.completed ? (
           <button
@@ -36,7 +37,11 @@ const TodoItem = (props) => {
       </div>
       <div className="c-todo-item__description">
         <p>{todo.description}</p>
-        <small>{`Due ${todo.dateDue.endOf('day').fromNow()}`}</small>
+        <small>
+          {`Due ${moment(todo.dateDue)
+            .endOf('day')
+            .fromNow()}`}
+        </small>
       </div>
     </li>
   );
