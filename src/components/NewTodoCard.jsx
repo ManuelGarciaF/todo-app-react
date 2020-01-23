@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import moment from 'moment';
 
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -26,7 +25,7 @@ class NewTodoCard extends React.Component {
 
   handleDateChange(date) {
     this.setState({
-      dateDueRaw: date,
+      dateDue: date,
     });
   }
 
