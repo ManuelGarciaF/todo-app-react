@@ -1,5 +1,6 @@
 import React from 'react';
 
+import 'animate.css';
 import './App.scss';
 
 import Project from './objects/Project';

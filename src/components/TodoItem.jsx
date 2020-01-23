@@ -12,7 +12,7 @@ const TodoItem = (props) => {
   const { index, handleTodoToggleCompletion, handleTodoRemove } = props;
   const { todo } = props;
   return (
-    <li className="c-todo-item">
+    <li className="c-todo-item animated fadeIn">
       <div className="c-todo-item__header">
         <Checkbox
           onChange={() => {

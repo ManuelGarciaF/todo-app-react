@@ -16,7 +16,9 @@ class ProjectItem extends React.Component {
 
   render() {
     const { projectTitle, selectedProjectIndex, index } = this.props;
-    const classes = `c-project-list__item ${index === selectedProjectIndex ? 'is-selected' : ''}`;
+    const classes = `c-project-list__item animated fadeIn ${
+      index === selectedProjectIndex ? 'is-selected' : ''
+    }`;
     return (
       <li className={classes}>
         <button type="button" onClick={this.handleClick}>
