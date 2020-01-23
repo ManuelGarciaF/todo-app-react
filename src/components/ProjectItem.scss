@@ -8,6 +8,11 @@
   margin: 0.25rem 0;
   margin-right: auto;
 
+  &:hover,
+  &:hover button {
+    background-color: darken($color: white, $amount: 10);
+  }
+
   .fa-circle {
     color: #3498db;
     align-self: center;
