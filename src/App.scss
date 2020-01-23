@@ -33,6 +33,8 @@ textarea {
 
   display: grid;
   grid-template: 100% / 50% 50%;
+  justify-items: start;
+  align-items: start;
 }
 
 .c-card {
