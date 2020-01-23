@@ -16,11 +16,8 @@
 
   &__list {
     overflow: hidden;
+    overflow-y: auto;
 
     max-height: 95%;
-
-    &:hover {
-      overflow-y: auto;
-    }
   }
 }
