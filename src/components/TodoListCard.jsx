@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 
 import TodoItem from './TodoItem';
 
-import Project from '../objects/Project';
-
 import './TodoListCard.scss';
 
 const TodoListCard = (props) => {
@@ -36,7 +34,7 @@ const TodoListCard = (props) => {
 };
 
 TodoListCard.propTypes = {
-  project: PropTypes.instanceOf(Project).isRequired,
+  project: PropTypes.isRequired,
   handleTodoToggleCompletion: PropTypes.func.isRequired,
   handleTodoRemove: PropTypes.func.isRequired,
   handleProjectRemove: PropTypes.func.isRequired,
