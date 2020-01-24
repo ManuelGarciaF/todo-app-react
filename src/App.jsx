@@ -1,7 +1,10 @@
 import React from 'react';
+import { confirmAlert } from 'react-confirm-alert';
+import 'react-confirm-alert/src/react-confirm-alert.css';
 
 import 'animate.css';
 import './App.scss';
+import './customAlert.scss';
 
 import Project from './objects/Project';
 import Todo from './objects/Todo';
@@ -49,15 +52,32 @@ class App extends React.Component {
   }
 
   handleProjectRemove() {
-    const { projects } = this.state;
-
-    this.removeCurrentProject();
-
-    if (projects.length <= 1) this.handleNewProject('New Project');
+    confirmAlert({
+      title: 'Confirm',
+      message: 'Are you sure you want to delete this project?',
+      buttons: [
+        {
+          label: 'Yes',
+          onClick: () => {
+            this.removeCurrentProject();
+          },
+        },
+        {
+          label: 'No',
+        },
+      ],
+    });
   }
 
   removeCurrentProject() {
     this.setState(({ projects, selectedProjectIndex }) => {
+      if (projects.length < 2) {
+        return {
+          projects: [new Project({ title: 'New Project' })],
+          selectedProjectIndex: 0,
+        };
+      }
+
       projects.splice(selectedProjectIndex, 1);
       return {
         projects,
